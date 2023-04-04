@@ -1,10 +1,9 @@
 import  { useState, useEffect } from 'react';
 
 
-import "./assets/plugins/bootstrap/css/bootstrap.min.css";
-import "./assets/plugins/summernote/dist/summernote.css";
-import  "./assets/css/style.min.css"
-import $ from 'jquery';
+// import "./assets/plugins/bootstrap/css/bootstrap.min.css";
+// import "./assets/plugins/summernote/dist/summernote.css";
+// import  "./assets/css/style.min.css"
 
 
 
@@ -24,6 +23,23 @@ import rtl from "./assets/images/themes/rtl.png"
 
 
 const Home = () => {
+    useEffect(()=> {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = "/assets/plugins/bootstrap/css/bootstrap.min.css";
+        document.head.appendChild(link); 
+
+        const link2 = document.createElement('link');
+        link2.rel = 'stylesheet';
+        link2.href = "/assets/plugins/summernote/dist/summernote.css";
+        document.head.appendChild(link2); 
+
+        const link3 = document.createElement('link');
+        link3.rel = 'stylesheet';
+        link3.href = "/assets/css/style.min.css";
+        document.head.appendChild(link3); 
+      },[]);
+
     const script4= document.createElement("script");
     script4.src = "/assets/bundles/counterup.bundle.js";
     script4.async = true;
@@ -90,16 +106,11 @@ const Home = () => {
                 <a className="header-brand" href="index.html"><i className="fa fa-graduation-cap brand-logo"></i></a>
                 <div className="dropdown">
                     <a href="javascript:void(0)" className="nav-link icon menu_toggle"><i className="fe fe-align-center"></i></a>
-                    {/* <!-- <a href="page-search.html" className="nav-link icon"><i className="fe fe-search" data-toggle="tooltip" data-placement="right" title="Search..."></i></a>
-                    <a href="app-email.html"  className="nav-link icon app_inbox"><i className="fe fe-inbox" data-toggle="tooltip" data-placement="right" title="Inbox"></i></a>
-                    <a href="app-filemanager.html"  className="nav-link icon app_file xs-hide"><i className="fe fe-folder" data-toggle="tooltip" data-placement="right" title="File Manager"></i></a>
-                    <a href="app-social.html"  className="nav-link icon xs-hide"><i className="fe fe-share-2" data-toggle="tooltip" data-placement="right" title="Social Media"></i></a>
-                    <a href="javascript:void(0)" className="nav-link icon theme_btn"><i className="fe fe-feather"></i></a> --> */}
+                   
                     <a href="javascript:void(0)" className="nav-link icon settingbar"><i className="fe fe-settings"></i></a>
                 </div>
             </div>
             <div className="hright">
-                {/* <!-- <a href="javascript:void(0)" className="nav-link icon right_tab"><i className="fe fe-align-right"></i></a> --> */}
                 <a href="login.html" className="nav-link icon settingbar"><i className="fe fe-power"></i></a>                
             </div>
         </div>

@@ -2,14 +2,13 @@ import  { useState, useEffect } from 'react';
 
 
 import "./images/favicon2.png";
-import "./css/bootstrap.min.css";
-import "./css/materialdesignicons.min.css";
-import "./css/tiny-slider.css";
-import "./css/tiny-slider.css.map";
-import "./css/swiper.min.css";
-import "./css/style.min.css";
-import "./css/style1.css";
-import $ from 'jquery';
+// import "./css/bootstrap.min.css";
+// import "./css/materialdesignicons.min.css";
+// import "./css/tiny-slider.css";
+// import "./css/tiny-slider.css.map";
+// import "./css/swiper.min.css";
+// import "./css/style.min.css";
+// import "./css/style1.css";
 
 
 import logo from "./images/Programming-amico.svg";
@@ -31,19 +30,58 @@ import img3 from "./images/team/img3.png"
 
 
 const C1 = () => {
+    useEffect(()=> {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = "/css/bootstrap.min.css";
+        document.head.appendChild(link); 
+
+        const link2 = document.createElement('link');
+        link2.rel = 'stylesheet';
+        link2.href = "/css/materialdesignicons.min.css";
+        document.head.appendChild(link2); 
+
+        const link3 = document.createElement('link');
+        link3.rel = 'stylesheet';
+        link3.href = "/css/tiny-slider.css";
+        document.head.appendChild(link3); 
+
+        const link4 = document.createElement('link');
+        link4.rel = 'stylesheet';
+        link4.href = "/css/tiny-slider.css.map";
+        document.head.appendChild(link4); 
+
+        const link5 = document.createElement('link');
+        link5.rel = 'stylesheet';
+        link5.href = "/css/swiper.min.css";
+        document.head.appendChild(link5); 
+
+        const link6 = document.createElement('link');
+        link6.rel = 'stylesheet';
+        link6.href = "/css/style.min.css";
+        document.head.appendChild(link6); 
+
+        const link7 = document.createElement('link');
+        link7.rel = 'stylesheet';
+        link7.href = "/css/style1.css";
+        document.head.appendChild(link7); 
+
+
+        var link8 = document.createElement("link");
+        link8.href = "https://unicons.iconscout.com/release/v4.0.0/css/line.css";
+        link8.rel = "stylesheet";
+        document.head.appendChild(link8);
+    
+        var link9 = document.createElement("link");
+        link9.href = "https://unpkg.com/swiper@8/swiper-bundle.min.css";
+        link9.rel = "stylesheet";
+        document.head.appendChild(link9);
+      },[]);
     useEffect(() => {
        
      
    
-    var link = document.createElement("link");
-    link.href = "https://unicons.iconscout.com/release/v4.0.0/css/line.css";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
-
-    var link2 = document.createElement("link");
-    link2.href = "https://unpkg.com/swiper@8/swiper-bundle.min.css";
-    link2.rel = "stylesheet";
-    document.head.appendChild(link2);
+   
 
 
     
@@ -68,15 +106,17 @@ const C1 = () => {
     script6.async = true;
     document.body.appendChild(script6);
 
+    const script7 = document.createElement("script");
+    script7.src = "/js/app.js";
+    script7.async = true;
+    document.body.appendChild(script7);
+
     const script2 = document.createElement("script");
     script2.src = "/js/counter.init.js";
     script2.async = true;
     document.body.appendChild(script2);
 
-    const script7 = document.createElement("script");
-    script7.src = "/js/app.js";
-    script7.async = true;
-    document.body.appendChild(script7);
+   
 
     const script3 = document.createElement("script");
     script3.src = "/js/js1.js";

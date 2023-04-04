@@ -1,27 +1,23 @@
 import {BrowserRouter as Router,Route, Switch } from "react-router-dom";
 import Login from "./Login";
-import C1 from './C1';
+// import C1 from './C1';
 // import Student from "./Student";
-import Home from "./Home";
+// import Home from "./Home";
 
 
-function App() {
+function App2() {
   return (
       <Router>
-
         <Switch>
+        {/* <Route exact path="/">
+         <C1/>
+        </Route> */}
         <Route exact path="/login">
          <Login/>
         </Route>
-
-
-        <Route exact path="/">
-         <C1/>
-        </Route>
-       
-        <Route exact path="/home">
+        {/* <Route exact path="/home">
          <Home/>
-        </Route>
+        </Route> */}
         </Switch>
 
       </Router>
@@ -29,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default App2;

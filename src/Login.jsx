@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
-import './css/loginStyle.css';
+// import './css/Login.module.css';
+// import "./css/login.css";
 // import { useHistory } from 'react-router-dom';
 import sec from './images/Webinar-pana.svg';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +10,14 @@ import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 function Login() {
+
+  useEffect(()=> {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = "/login.css";
+    document.head.appendChild(link); 
+  },[]);
+
   const data = {
     name: 'John',
     email: 'john@example.com',
