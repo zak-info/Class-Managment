@@ -6,7 +6,11 @@
   box-sizing: border-box;
 }
 
-body,
+.bdy{
+  width: 100%;
+}
+
+.bdy,
 input {
   font-family: "Poppins", sans-serif;
 }
@@ -512,7 +516,7 @@ form input  {
   padding: 0 45px;
   font-size: 18px;
   background: none;
-  caret-color: #5372F0;
+  caret-color: #2fb4ae;
   border-radius: 5px;
   border: 1px solid #bfbfbf;
   border-bottom-width: 2px;
@@ -521,7 +525,7 @@ form input  {
 
 form .field input:focus,
 form .field.valid input {
-  border-color: #5372F0;
+  border-color: #2fb4ae;
 }
 
 form .field.shake input,

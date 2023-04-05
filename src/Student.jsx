@@ -1,10 +1,10 @@
 import  { useState, useEffect } from 'react';
 
 
-import "./assets/plugins/bootstrap/css/bootstrap.min.css";
-import "./assets/plugins/summernote/dist/summernote.css";
-import  "./assets/css/style.min.css"
-import $ from 'jquery';
+// import "./assets/plugins/bootstrap/css/bootstrap.min.css";
+// import "./assets/plugins/summernote/dist/summernote.css";
+// import  "./assets/css/style.min.css"
+// import $ from 'jquery';
 
 
 
@@ -36,7 +36,22 @@ import img8 from "./assets/images/gallery/8.jpg"
 
 
 const Student = () => {
-    
+    useEffect(()=> {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = "/assets/plugins/bootstrap/css/bootstrap.min.css";
+        document.head.appendChild(link); 
+
+        const link2 = document.createElement('link');
+        link2.rel = 'stylesheet';
+        link2.href = "/assets/plugins/summernote/dist/summernote.css";
+        document.head.appendChild(link2); 
+
+        const link3 = document.createElement('link');
+        link3.rel = 'stylesheet';
+        link3.href = "/assets/css/style.min.css";
+        document.head.appendChild(link3); 
+      },[]);
 
     const script7 = document.createElement("script");
     script7.src = "https://code.jquery.com/jquery-3.6.0.min.js";

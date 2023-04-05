@@ -1,7 +1,11 @@
-import React, { useState, useEffect} from 'react';
-// import './css/Login.module.css';
+import React, { useState, useEffect , useContext} from 'react';
+import Auth from "./contexts/Auth";
+import { login } from "./services/AuthApi";
+
+
+ 
 // import "./css/login.css";
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import sec from './images/Webinar-pana.svg';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +14,20 @@ import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 function Login() {
+  const histr = useHistory(); 
+  const [user, setUser] = useState({
+    username: "",
+    password: ""
+  });
+
+  // const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
+
+
+  // useEffect(()=>{
+  //   if (isAuthenticated){
+  //     histr.push("/home");
+  //   }
+  // },[histr,isAuthenticated]);
 
   useEffect(()=> {
     const link = document.createElement('link');
@@ -23,7 +41,6 @@ function Login() {
     email: 'john@example.com',
   };
   const [isSignUp, setIsSignUp] = useState(false);
-  // const history = useHistory(); 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -43,7 +60,23 @@ function Login() {
       }
        else if (username === "dd" || password === "dd") {
         setError("");
-        console.log("correct!!");
+        // try {
+        //   setUser ={
+        //     username: username,
+        //     password: password
+        //   };
+          
+        
+        //   // const response =  login(user);
+        //   // setIsAuthenticated(response);
+        //   // console.log(response);
+        //   histr.push('/home');
+        // } catch ({ response }) {
+        //   console.log(response);
+        // }
+        histr.push('/home');
+
+    
         // props.onLogin();
       } 
        else {
@@ -57,25 +90,25 @@ function Login() {
   };
 
   return (
-    <div className={`container ${isSignUp ? 'sign-up-mode' : ''}`} >
+    <div className={`container bdy ${isSignUp ? 'sign-up-mode' : ''}`}   >
     {/* <div className='container sign-up-mode'> */}
 
       <div className="forms-container">
         <div className="signin-signup">
-          <form action="#" className="sign-in-form" onSubmit={handleLoginSubmit}>
+          <form  className="sign-in-form" onSubmit={handleLoginSubmit}>
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <FontAwesomeIcon icon={faEnvelope} className="user" />
-              <input type="text" placeholder="Email" value={username} onChange={(e) => setUsername(e.target.value)} />
+              <input className='inpt' type="text" placeholder="Email" value={username} onChange={(e) => setUsername(e.target.value)} />
             </div>
             <div className="input-field">
               <FontAwesomeIcon icon={faLock} className="user" />
-              <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <input   className='inpt' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             {error && <p className="error-message error-txt">{error}</p>}
             {isLoading && <p>Loading...</p>}
             <FontAwesomeIcon icon={faExclamationCircle} className={`errorr user-iconn ${error ? "show" : ""}`} />
-            <input type="submit" value="Login" className="btn solid" />
+            <input   type="submit" value="Login" className="btn solid inpt" />
           </form>
         </div>
       </div>

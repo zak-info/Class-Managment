@@ -1,4 +1,8 @@
-import  { useState, useEffect } from 'react';
+import  { useState, useEffect,useContext } from 'react';
+import Auth from "./contexts/Auth";
+import { logout } from "./services/AuthApi";
+
+
 
 
 // import "./assets/plugins/bootstrap/css/bootstrap.min.css";
@@ -23,6 +27,13 @@ import rtl from "./assets/images/themes/rtl.png"
 
 
 const Home = () => {
+    const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
+    const handleLogout = () => {
+        logout();
+        setIsAuthenticated(false);
+      }
+    
+
     useEffect(()=> {
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -64,17 +75,25 @@ const Home = () => {
     script6.src = "/assets/bundles/summernote.bundle.js";
     script6.async = true;
 
+    const script = document.createElement("script");
+    script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
+    script.async = true;
+
     const script2 = document.createElement("script");
     script2.src = "/assets/js/core.js";
     script2.async = true;
 
+
+    
+
     useEffect(() => {
-        document.body.appendChild(script7);
-        document.body.appendChild(script1);
-        document.body.appendChild(script2);
-        document.body.appendChild(script6);
-        document.body.appendChild(script4);
-        document.body.appendChild(script5);
+        // document.body.appendChild(script);
+        // document.body.appendChild(script7);
+        // document.body.appendChild(script1);
+        // document.body.appendChild(script2);
+        // document.body.appendChild(script6);
+        // document.body.appendChild(script4);
+        // document.body.appendChild(script5);
 
 
 
@@ -111,7 +130,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="hright">
-                <a href="login.html" className="nav-link icon settingbar"><i className="fe fe-power"></i></a>                
+                <a  className="nav-link icon settingbar" onClick={handleLogout}><i className="fe fe-power"></i></a>                
             </div>
         </div>
     </div>
@@ -291,526 +310,10 @@ const Home = () => {
             </div>
         </div>        
     </div>
-    {/* <!-- <div className="user_div">
-        <ul className="nav nav-tabs">
-            <li className="nav-item"><a className="nav-link active" data-toggle="tab" href="#righttab-statistics">Statistics</a></li>
-            <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#righttab-Result">Result</a></li>
-            <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#righttab-Students">Student</a></li>
-            <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#righttab-Todo">Todo</a></li>
-        </ul>
-        <div className="tab-content mt-3">
-            <div className="tab-pane fade show active" id="righttab-statistics" role="tabpanel">
-                <div className="card">
-                    <div className="card-body">
-                        <div>Total Revenue</div>
-                        <div className="py-3 m-0 text-center h1 text-success">$79,452</div>
-                        <div className="d-flex">
-                            <span className="text-muted">Income</span>
-                            <div className="ml-auto"><i className="fa fa-caret-up text-success"></i>4%</div>
-                        </div>
-                    </div>
-                    <div className="card-footer">
-                        <ul className="list-unstyled mb-0">
-                            <li className="mb-3">
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>$43,320</strong></div>
-                                    <div className="float-right"><small className="text-muted">Bank of America</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-azure" role="progressbar" style="width: 87%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>$36,132</strong></div>
-                                    <div className="float-right"><small className="text-muted">Wells Fargo</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-green" role="progressbar" style="width: 80%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body top_counter">
-                        <div className="icon bg-yellow"><i className="fa fa-users"></i> </div>
-                        <div className="content">
-                            <span>Total Student</span>
-                            <h5 className="number mb-0">2,051</h5>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body top_counter">
-                        <div className="icon bg-gray"><i className="fa fa-sitemap"></i> </div>
-                        <div className="content">
-                            <span>Department</span>
-                            <h5 className="number mb-0">14</h5>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body top_counter">
-                        <div className="icon bg-dark"><i className="fa fa-black-tie"></i> </div>
-                        <div className="content">
-                            <span>Total Teacher</span>
-                            <h5 className="number mb-0">27</h5>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body top_counter">
-                        <div className="icon bg-azure"><i className="fa fa-tags"></i> </div>
-                        <div className="content">
-                            <span>Total Courses</span>
-                            <h5 className="number mb-0">31</h5>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body top_counter">
-                        <div className="icon bg-pink"><i className="fa fa-credit-card"></i> </div>
-                        <div className="content">
-                            <span>Expense</span>
-                            <h5 className="number mb-0">$7,254</h5>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body top_counter">
-                        <div className="icon bg-green"><i className="fa fa-bank"></i> </div>
-                        <div className="content">
-                            <span>Total Income</span>
-                            <h5 className="number mb-0">$27,852</h5>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body top_counter">
-                        <div className="icon bg-cyan"><i className="fa fa-map-o"></i> </div>
-                        <div className="content">
-                            <span>Our Center</span>
-                            <h5 className="number mb-0">52</h5>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-body top_counter">
-                        <div className="icon bg-indigo"><i className="fa fa-smile-o"></i> </div>
-                        <div className="content">
-                            <span>Smiley Face</span>
-                            <h5 className="number mb-0">10K</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="tab-pane fade" id="righttab-Result" role="tabpanel">
-                <div className="card">
-                    <div className="card-header">
-                        <h3 className="card-title">Result 2019</h3>
-                        <div className="card-options">
-                            <a href="#"><i className="fa fa-file-excel-o" data-toggle="tooltip" title="Export Excel"></i></a>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <ul className="list-unstyled">
-                            <li className="mb-3">
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>87%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Art & Design</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-azure" role="progressbar" style="width: 87%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li className="mb-3">
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>80%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Fashion</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-green" role="progressbar" style="width: 80%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li className="mb-3">
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>63%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Sports Science</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-orange" role="progressbar" style="width: 63%" aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li className="mb-3">
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>91%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Computers</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-indigo" role="progressbar" style="width: 91%" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>35%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Biological Sciences</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-pink" role="progressbar" style="width: 35%" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="card-footer">
-                        <div className="row text-center">
-                            <div className="col-6 border-right">
-                                <label className="mb-0">Total Pass</label>
-                                <div className="font-20 font-weight-bold">1,052</div>
-                            </div>
-                            <div className="col-6">
-                                <label className="mb-0">Total Fail</label>
-                                <div className="font-20 font-weight-bold">198</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="card-header">
-                        <h3 className="card-title">Result 2018</h3>
-                        <div className="card-options">
-                            <a href="#"><i className="fa fa-file-excel-o" data-toggle="tooltip" title="Export Excel"></i></a>
-                        </div>
-                    </div>
-                    <div className="card-body">
-                        <ul className="list-unstyled">
-                            <li className="mb-3">
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>80%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Fashion</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-green" role="progressbar" style="width: 80%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li className="mb-3">
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>87%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Art & Design</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-azure" role="progressbar" style="width: 87%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li className="mb-3">
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>91%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Computers</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-indigo" role="progressbar" style="width: 91%" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li className="mb-3">
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>35%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Biological Sciences</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-pink" role="progressbar" style="width: 35%" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="clearfix">
-                                    <div className="float-left"><strong>63%</strong></div>
-                                    <div className="float-right"><small className="text-muted">Sports Science</small></div>
-                                </div>
-                                <div className="progress progress-xxs">
-                                    <div className="progress-bar bg-orange" role="progressbar" style="width: 63%" aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="card-footer">
-                        <div className="row text-center">
-                            <div className="col-6 border-right">
-                                <label className="mb-0">Total Pass</label>
-                                <div className="font-20 font-weight-bold">845</div>
-                            </div>
-                            <div className="col-6">
-                                <label className="mb-0">Total Fail</label>
-                                <div className="font-20 font-weight-bold">142</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="tab-pane fade" id="righttab-Students" role="tabpanel">
-                <div id="users">
-                    <div className="input-group mt-2 mb-2">
-                        <input type="text" className="form-control search" placeholder="Search Student">
-                    </div>
-                    <ul className="right_chat list-unstyled list">
-                        <li className="alfabet">A</li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar1.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Abigail Churchill</span>
-                                    <span className="message">Art & Design</span>
-                                </div>
-                            </a>                            
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar2.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Alexandra Carr</span>
-                                    <span className="message">Fashion</span>
-                                </div>
-                            </a>                            
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar3.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Alison Berry</span>
-                                    <span className="message">Fashion</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="alfabet">B</li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar4.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Bella Alan</span>
-                                    <span className="message">Sports Science</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="alfabet">C</li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar5.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Caroline Alan</span>
-                                    <span className="message">Sports Science</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar6.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Connor Campbell</span>
-                                    <span className="message">Computers</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar7.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Charles Campbell</span>
-                                    <span className="message">Computers</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="alfabet">D</li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar8.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Donna Hudson</span>
-                                    <span className="message">Computers</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar9.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Dylan Jones</span>
-                                    <span className="message">Computers</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="alfabet">G</li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar8.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Gordon Hudson</span>
-                                    <span className="message">Sports Science</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar9.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Gabrielle Walker</span>
-                                    <span className="message">Computers</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar10.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Gavin North</span>
-                                    <span className="message">Computers</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="alfabet">S</li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar1.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">Stephanie Hudson</span>
-                                    <span className="message">Sports Science</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li className="alfabet">W</li>
-                        <li>
-                            <a href="javascript:void(0);" className="media">
-                                <img className="media-object" src="../assets/images/xs/avatar1.jpg" alt="">
-                                <div className="media-body">
-                                    <span className="name">William Paige</span>
-                                    <span className="message">Fashion</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="user_chatbody chat_app">
-                    <div className="card-header bline pt-1 pl-0 pr-0">
-                        <h3 className="card-title">Abigail Churchill <small>Online</small></h3>
-                        <div className="card-options">
-                            <a href="javascript:void(0)" className="p-1" data-toggle="dropdown"><i className="fa fa-cog"></i></a>
-                            <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                <a className="dropdown-item active" href="#">Online</a>
-                                <a className="dropdown-item" href="#">Away</a>
-                                <a className="dropdown-item" href="#">Do not disturb</a>
-                                <a className="dropdown-item" href="#">Invisible</a>
-                            </div>
-                            <a href="javascript:void(0)" className="p-1 chat_close"><i className="fa fa-close"></i></a>
-                        </div>
-                    </div>
-                    <div className="chat_windows">
-                        <ul className="mb-0">
-                            <li className="other-message">
-                                <img className="avatar mr-3" src="../assets/images/xs/avatar1.jpg" alt="avatar">
-                                <div className="message">
-                                    <p className="bg-light-blue">Are we meeting today?</p>
-                                    <span className="time">10:10 AM, Today</span>
-                                </div>
-                            </li>    
-                            <li className="other-message">
-                                <img className="avatar mr-3" src="../assets/images/xs/avatar1.jpg" alt="avatar">
-                                <div className="message">
-                                    <p className="bg-light-blue">Hi Aiden, how are you? How is the project coming along?</p>
-                                    <p className="bg-light-blue">Are we meeting today?</p>
-                                    <span className="time">10:15 AM, Today</span>
-                                </div>
-                            </li>                                    
-                            <li className="my-message">
-                                <div className="message">
-                                    <p className="bg-light-gray">Project has been already finished and I have results to show you.</p>
-                                    <div className="file_folder">
-                                        <a href="javascript:void(0);">
-                                            <div className="icon">
-                                                <i className="fa fa-file-excel-o text-success"></i>
-                                            </div>
-                                            <div className="file-name">
-                                                <p className="mb-0 text-muted">Report2017.xls</p>
-                                                <small>Size: 68KB</small>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <span className="time">10:17 AM, Today</span>
-                                </div>
-                            </li>
-                            <li className="other-message">
-                                <img className="avatar mr-3" src="../assets/images/xs/avatar1.jpg" alt="avatar">
-                                <div className="message">
-                                    <div className="media_img">
-                                        <img src="../assets/images/gallery/1.jpg" className="w100 img-thumbnail" alt="">
-                                        <img src="../assets/images/gallery/2.jpg" className="w100 img-thumbnail" alt="">
-                                    </div>
-                                    <span className="time">10:15 AM, Today</span>
-                                </div>
-                            </li> 
-                            <li className="other-message">
-                                <img className="avatar mr-3" src="../assets/images/xs/avatar1.jpg" alt="avatar">
-                                <div className="message">                                            
-                                    <p className="bg-light-blue">Are we meeting today I have results?</p>
-                                    <span className="time">10:18 AM, Today</span>
-                                </div>
-                            </li>
-                            <li className="my-message">
-                                <div className="message">
-                                    <p className="bg-light-gray">Well we have good budget for the project</p>
-                                    <span className="time">10:25 AM, Today</span>
-                                </div>
-                            </li>
-                        </ul>
-                        <div className="chat-message clearfix">
-                            <a href="javascript:void(0);"><i className="icon-camera"></i></a>
-                            <a href="javascript:void(0);"><i className="icon-camcorder"></i></a>
-                            <a href="javascript:void(0);"><i className="icon-paper-plane"></i></a>
-                            <div className="input-group mb-0">
-                                <input type="text" className="form-control" placeholder="Enter text here...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="tab-pane fade" id="righttab-Todo" role="tabpanel">
-                <ul className="list-unstyled mb-0 todo_list">
-                    <li>
-                        <label className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" name="example-checkbox1" value="option1" checked="">
-                            <span className="custom-control-label">Report Panel Usag</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" name="example-checkbox1" value="option1">
-                            <span className="custom-control-label">Report Panel Usag</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" name="example-checkbox1" value="option1" checked="">
-                            <span className="custom-control-label">New logo design for Angular Admin</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" name="example-checkbox1" value="option1">
-                            <span className="custom-control-label">Design PSD files for Angular Admin</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label className="custom-control custom-checkbox">
-                            <input type="checkbox" className="custom-control-input" name="example-checkbox1" value="option1" checked="">
-                            <span className="custom-control-label">New logo design for Angular Admin</span>
-                        </label>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div> --> */}
+    
     <div id="left-sidebar" className="sidebar">
         <h5 className="brand-name">LearnUp<a href="javascript:void(0)" className="menu_option float-right"><i className="icon-grid font-16" data-toggle="tooltip" data-placement="left" title="Grid & List Toggle"></i></a></h5>
-        {/* <!-- <ul className="nav nav-tabs">
-            <li className="nav-item"><a className="nav-link active" data-toggle="tab" href="#menu-uni">University</a></li>
-            <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#menu-admin">Admin</a></li>
-        </ul> --> */}
+        
         <div className="tab-content mt-3">
             <div className="tab-pane fade show active" id="menu-uni" role="tabpanel">
                 
@@ -818,20 +321,11 @@ const Home = () => {
                     <ul className="metismenu">
                         <li className="active"><a href="index.html"><i className="fa fa-dashboard"></i><span>Dashboard</span></a></li>
                         <li><a href="professors.html"><i className="fa fa-black-tie"></i><span>Professors</span></a></li>
-                        {/* <!-- <li><a href="staff.html"><i className="fa fa-user-circle-o"></i><span>Staff</span></a></li> --> */}
                         <li><a href="students.html"><i className="fa fa-users"></i><span>Students</span></a></li>
-                        {/* <!-- <li><a href="departments.html"><i className="fa fa-users"></i><span>Departments</span></a></li> -->
-                        <!-- <li><a href="courses.html"><i className="fa fa-graduation-cap"></i><span>Courses</span></a></li>                         --> */}
                         <li><a href="library.html"><i className="fa fa-book"></i><span>Library</span></a></li>
-                        {/* <!-- <li><a href="holiday.html"><i className="fa fa-bullhorn"></i><span>Holiday</span></a></li> -->
-                        <!-- <li className="g_heading">Extra</li> --> */}
+                        
                         <li><a href="events.html"><i className="fa fa-calendar"></i><span>emploi de temps</span></a></li>
-                        {/* <!-- <li><a href="app-chat.html"><i className="fa fa-comments-o"></i><span>Chat App</span></a></li>
-                        <li><a href="app-contact.html"><i className="fa fa-address-book"></i><span>Contact</span></a></li>
-                        <li><a href="app-filemanager.html"><i className="fa fa-folder"></i><span>FileManager</span></a></li>
-                        <li><a href="our-centres.html"><i className="fa fa-map"></i><span>OurCentres</span></a></li>
-                        <li><a href="gallery.html"><i className="fa fa-camera-retro"></i><span>Gallery</span></a></li> --> */}
-                    </ul>
+                       </ul>
                 </nav>
             </div>
             <div className="tab-pane fade" id="menu-admin" role="tabpanel">
@@ -853,161 +347,7 @@ const Home = () => {
     <div className="page">
         <div className="section-body" id="page_top">
             <div className="container-fluid">
-                {/* <!-- <div className="page-header">
-                    <div className="left">                        
-                        <div className="input-group">
-                            <input type="text" className="form-control" placeholder="What you want to find">
-                            <div className="input-group-append">
-                                <button className="btn btn-outline-secondary" type="button">Search</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="right">
-                        <ul className="nav nav-pills">                            
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                <div className="dropdown-menu">
-                                    <a className="dropdown-item" href="page-empty.html">Empty page</a>
-                                    <a className="dropdown-item" href="page-profile.html">Profile</a>
-                                    <a className="dropdown-item" href="page-search.html">Search Results</a>
-                                    <a className="dropdown-item" href="page-timeline.html">Timeline</a>
-                                    <a className="dropdown-item" href="page-invoices.html">Invoices</a>
-                                    <a className="dropdown-item" href="page-pricing.html">Pricing</a>
-                                </div>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Auth</a>
-                                <div className="dropdown-menu">
-                                    <a className="dropdown-item" href="login.html">Login</a>
-                                    <a className="dropdown-item" href="register.html">Register</a>
-                                    <a className="dropdown-item" href="forgot-password.html">Forgot password</a>
-                                    <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item" href="404.html">404 error</a>
-                                    <a className="dropdown-item" href="500.html">500 error</a>
-                                </div>
-                            </li>
-                        </ul>
-                        <div className="notification d-flex">
-                            <div className="dropdown d-flex">
-                                <a className="nav-link icon d-none d-md-flex btn btn-default btn-icon ml-1" data-toggle="dropdown"><i className="fa fa-language"></i></a>
-                                <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <a className="dropdown-item" href="#"><img className="w20 mr-2" src="../assets/images/flags/us.svg" alt="">English</a>
-                                    <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item" href="#"><img className="w20 mr-2" src="../assets/images/flags/es.svg" alt="">Spanish</a>
-                                    <a className="dropdown-item" href="#"><img className="w20 mr-2" src="../assets/images/flags/jp.svg" alt="">japanese</a>
-                                    <a className="dropdown-item" href="#"><img className="w20 mr-2" src="../assets/images/flags/bl.svg" alt="">France</a> 
-                                </div>
-                            </div>
-                            <div className="dropdown d-flex">
-                                <a className="nav-link icon d-none d-md-flex btn btn-default btn-icon ml-1" data-toggle="dropdown"><i className="fa fa-envelope"></i><span className="badge badge-success nav-unread"></span></a>
-                                <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <ul className="right_chat list-unstyled w350 p-0">
-                                        <li className="online">
-                                            <a href="javascript:void(0);" className="media">
-                                                <img className="media-object" src="../assets/images/xs/avatar4.jpg" alt="">
-                                                <div className="media-body">
-                                                    <span className="name">Donald Gardner</span>
-                                                    <div className="message">It is a long established fact that a reader</div>
-                                                    <small>11 mins ago</small>
-                                                    <span className="badge badge-outline status"></span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li className="online">
-                                            <a href="javascript:void(0);" className="media">
-                                                <img className="media-object " src="../assets/images/xs/avatar5.jpg" alt="">
-                                                <div className="media-body">
-                                                    <span className="name">Wendy Keen</span>
-                                                    <div className="message">There are many variations of passages of Lorem Ipsum</div>
-                                                    <small>18 mins ago</small>
-                                                    <span className="badge badge-outline status"></span>
-                                                </div>
-                                            </a>                            
-                                        </li>
-                                        <li className="offline">
-                                            <a href="javascript:void(0);" className="media">
-                                                <img className="media-object " src="../assets/images/xs/avatar2.jpg" alt="">
-                                                <div className="media-body">
-                                                    <span className="name">Matt Rosales</span>
-                                                    <div className="message">Contrary to popular belief, Lorem Ipsum is not simply</div>
-                                                    <small>27 mins ago</small>
-                                                    <span className="badge badge-outline status"></span>
-                                                </div>
-                                            </a>                            
-                                        </li>
-                                        <li className="online">
-                                            <a href="javascript:void(0);" className="media">
-                                                <img className="media-object " src="../assets/images/xs/avatar3.jpg" alt="">
-                                                <div className="media-body">
-                                                    <span className="name">Phillip Smith</span>
-                                                    <div className="message">It has roots in a piece of classical Latin literature from 45 BC</div>
-                                                    <small>33 mins ago</small>
-                                                    <span className="badge badge-outline status"></span>
-                                                </div>
-                                            </a>                            
-                                        </li>                        
-                                    </ul>
-                                    <div className="dropdown-divider"></div>
-                                    <a href="javascript:void(0)" className="dropdown-item text-center text-muted-dark readall">Mark all as read</a>
-                                </div>
-                            </div>
-                            <div className="dropdown d-flex">
-                                <a className="nav-link icon d-none d-md-flex btn btn-default btn-icon ml-1" data-toggle="dropdown"><i className="fa fa-bell"></i><span className="badge badge-primary nav-unread"></span></a>
-                                <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <ul className="list-unstyled feeds_widget">
-                                        <li>
-                                            <div className="feeds-left">
-                                                <span className="avatar avatar-blue"><i className="fa fa-check"></i></span>
-                                            </div>
-                                            <div className="feeds-body ml-3">
-                                                <p className="text-muted mb-0">Campaign <strong className="text-blue font-weight-bold">Holiday</strong> is nearly reach budget limit.</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div className="feeds-left">
-                                                <span className="avatar avatar-green"><i className="fa fa-user"></i></span>
-                                            </div>
-                                            <div className="feeds-body ml-3">
-                                                <p className="text-muted mb-0">New admission <strong className="text-green font-weight-bold">32</strong> in computer department.</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div className="feeds-left">
-                                                <span className="avatar avatar-red"><i className="fa fa-info"></i></span>
-                                            </div>
-                                            <div className="feeds-body ml-3">
-                                                <p className="text-muted mb-0">6th sem result <strong className="text-red font-weight-bold">67%</strong> in computer department.</p>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div className="feeds-left">
-                                                <span className="avatar avatar-azure"><i className="fa fa-thumbs-o-up"></i></span>
-                                            </div>
-                                            <div className="feeds-body ml-3">
-                                                <p className="text-muted mb-0">New Feedback <strong className="text-azure font-weight-bold">53</strong> for university assessment.</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div className="dropdown-divider"></div>
-                                    <a href="javascript:void(0)" className="dropdown-item text-center text-muted-dark readall">Mark all as read</a>
-                                </div>
-                            </div>
-                            <div className="dropdown d-flex">
-                                <a href="javascript:void(0)" className="chip ml-3" data-toggle="dropdown">
-                                    <span className="avatar" style="background-image: url(../assets/images/xs/avatar5.jpg)"></span> George</a>
-                                <div className="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                    <a className="dropdown-item" href="page-profile.html"><i className="dropdown-icon fe fe-user"></i> Profile</a>
-                                    <a className="dropdown-item" href="app-setting.html"><i className="dropdown-icon fe fe-settings"></i> Settings</a>
-                                    <a className="dropdown-item" href="app-email.html"><span className="float-right"><span className="badge badge-primary">6</span></span><i className="dropdown-icon fe fe-mail"></i> Inbox</a>
-                                    <a className="dropdown-item" href="javascript:void(0)"><i className="dropdown-icon fe fe-send"></i> Message</a>
-                                    <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item" href="javascript:void(0)"><i className="dropdown-icon fe fe-help-circle"></i> Need help?</a>
-                                    <a className="dropdown-item" href="login.html"><i className="dropdown-icon fe fe-log-out"></i> Sign out</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --> */}
+                
             </div>
         </div>
         <div className="section-body">
@@ -1023,7 +363,7 @@ const Home = () => {
                     </div>
                     <ul className="nav nav-tabs page-header-tab">
                         <li className="nav-item"><a className="nav-link active" data-toggle="tab" href="#admin-Dashboard">Dashboard</a></li>
-                        {/* <!-- <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#admin-Activity">Activity</a></li> --> */}
+
                     </ul>
                 </div>
             </div>
@@ -1042,16 +382,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- <div className="col-6 col-md-4 col-xl-2">
-                        <div className="card">
-                            <div className="card-body">
-                                <a href="app-contact.html" className="my_sort_cut text-muted">
-                                    <i className="fa fa-address-book"></i>
-                                    <span>Contact</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div> --> */}
+                    
                     <div className="col-6 col-md-4 col-xl-2">
                         <div className="card">
                             <div className="card-body ribbon">
@@ -1063,16 +394,7 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- <div className="col-6 col-md-4 col-xl-2">
-                         <div className="card">
-                            <div className="card-body">
-                                <a href="app-filemanager.html" className="my_sort_cut text-muted">
-                                    <i className="fa fa-folder"></i>
-                                    <span>FileManager</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>  --> */}
+                    
                     <div className="col-6 col-md-4 col-xl-2">
                         <div className="card">
                             <div className="card-body">
@@ -1083,253 +405,14 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <!-- <div className="col-6 col-md-4 col-xl-2">
-                        <div className="card">
-                            <div className="card-body">
-                                <a href="holiday.html" className="my_sort_cut text-muted">
-                                    <i className="fa fa-bullhorn"></i>
-                                    <span>Holiday</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div> --> */}
+                    
                 </div>
                 <div className="tab-content">
                     <div className="tab-pane fade show active" id="admin-Dashboard" role="tabpanel">
                         <div className="row clearfix">
-                            {/* <!-- <div className="col-xl-12">
-                                <div className="card">
-                                    <div className="card-header">
-                                        <h3 className="card-title">University Report</h3>
-                                        <div className="card-options">
-                                            <a href="#" className="card-options-collapse" data-toggle="card-collapse"><i className="fe fe-chevron-up"></i></a>
-                                            <a href="#" className="card-options-fullscreen" data-toggle="card-fullscreen"><i className="fe fe-maximize"></i></a>
-                                            <a href="#" className="card-options-remove" data-toggle="card-remove"><i className="fe fe-x"></i></a>
-                                        </div>
-                                    </div>
-                                    <div className="card-body">
-                                        <div className="d-sm-flex justify-content-between">
-                                            <div className="font-12 mb-2"><span>Measure How Fast You’re Growing Monthly Recurring Revenue. <a href="#">Learn More</a></span></div>
-                                            <div className="selectgroup w250">
-                                                <label className="selectgroup-item">
-                                                    <input type="radio" name="intensity" value="low" className="selectgroup-input" checked="">
-                                                    <span className="selectgroup-button">1D</span>
-                                                </label>
-                                                <label className="selectgroup-item">
-                                                    <input type="radio" name="intensity" value="medium" className="selectgroup-input">
-                                                    <span className="selectgroup-button">1W</span>
-                                                </label>
-                                                <label className="selectgroup-item">
-                                                    <input type="radio" name="intensity" value="high" className="selectgroup-input">
-                                                    <span className="selectgroup-button">1M</span>
-                                                </label>
-                                                <label className="selectgroup-item">
-                                                    <input type="radio" name="intensity" value="veryhigh" className="selectgroup-input">
-                                                    <span className="selectgroup-button">1Y</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div id="apex-chart-line-column"></div>
-                                    </div>
-                                    <div className="card-footer">
-                                        <div className="row">
-                                            <div className="col-xl-3 col-md-6 mb-2">
-                                                <div className="clearfix">
-                                                    <div className="float-left"><strong>Fees</strong></div>
-                                                    <div className="float-right"><small className="text-muted">35%</small></div>
-                                                </div>
-                                                <div className="progress progress-xs">
-                                                    <div className="progress-bar bg-indigo" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <span className="text-uppercase font-10">Compared to last year</span>
-                                            </div>
-                                            <div className="col-xl-3 col-md-6 mb-2">
-                                                <div className="clearfix">
-                                                    <div className="float-left"><strong>Donation</strong></div>
-                                                    <div className="float-right"><small className="text-muted">61%</small></div>
-                                                </div>
-                                                <div className="progress progress-xs">
-                                                    <div className="progress-bar bg-yellow" role="progressbar" style="width: 61%" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <span className="text-uppercase font-10">Compared to last year</span>
-                                            </div> 
-                                            <div className="col-xl-3 col-md-6 mb-2">
-                                                <div className="clearfix">
-                                                    <div className="float-left"><strong>Income</strong></div>
-                                                    <div className="float-right"><small className="text-muted">87%</small></div>
-                                                </div>
-                                                <div className="progress progress-xs">
-                                                    <div className="progress-bar bg-green" role="progressbar" style="width: 87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <span className="text-uppercase font-10">Compared to last year</span>
-                                            </div>
-                                            <div className="col-xl-3 col-md-6 mb-2">
-                                                <div className="clearfix">
-                                                    <div className="float-left"><strong>Expense</strong></div>
-                                                    <div className="float-right"><small className="text-muted">42%</small></div>
-                                                </div>
-                                                <div className="progress progress-xs">
-                                                    <div className="progress-bar bg-pink" role="progressbar" style="width: 42%" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                <span className="text-uppercase font-10">Compared to last year</span>
-                                            </div>                                                                       
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --> */}
+                            
                         </div>                
-                        {/* <!-- <div className="row clearfix row-deck">
-                            <div className="col-xl-6 col-lg-6 col-md-12">
-                                <div className="card">
-                                    <div className="card-header">
-                                        <h3 className="card-title">Exam Toppers</h3>
-                                        <div className="card-options">
-                                            <a href="#" className="card-options-collapse" data-toggle="card-collapse"><i className="fe fe-chevron-up"></i></a>
-                                            <div className="item-action dropdown ml-2">
-                                                <a href="javascript:void(0)" data-toggle="dropdown"><i className="fe fe-more-vertical"></i></a>
-                                                <div className="dropdown-menu dropdown-menu-right">
-                                                    <a href="javascript:void(0)" className="dropdown-item"><i className="dropdown-icon fa fa-eye"></i> View Details </a>
-                                                    <a href="javascript:void(0)" className="dropdown-item"><i className="dropdown-icon fa fa-share-alt"></i> Share </a>
-                                                    <a href="javascript:void(0)" className="dropdown-item"><i className="dropdown-icon fa fa-cloud-download"></i> Download</a>                                            
-                                                    <div className="dropdown-divider"></div>
-                                                    <a href="javascript:void(0)" className="dropdown-item"><i className="dropdown-icon fa fa-copy"></i> Copy to</a>
-                                                    <a href="javascript:void(0)" className="dropdown-item"><i className="dropdown-icon fa fa-folder"></i> Move to</a>
-                                                    <a href="javascript:void(0)" className="dropdown-item"><i className="dropdown-icon fa fa-edit"></i> Rename</a>
-                                                    <a href="javascript:void(0)" className="dropdown-item"><i className="dropdown-icon fa fa-trash"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="table-responsive" style="height: 310px;">
-                                        <table className="table card-table table-vcenter text-nowrap table-striped mb-0">
-                                            <tbody>
-                                                <tr>
-                                                    <th>No.</th>                                                    
-                                                    <th>Name</th>
-                                                    <th></th>
-                                                    <th>Marks</th>
-                                                    <th>%AGE</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>11</td>
-                                                    <td className="w40">
-                                                        <div className="avatar">
-                                                            <img className="avatar" src="../assets/images/xs/avatar1.jpg" alt="avatar">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>Merri Diamond</div>
-                                                        <div className="text-muted">Science</div>
-                                                    </td>
-                                                    <td>199</td>
-                                                    <td>99.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>23</td>
-                                                    <td className="w40">
-                                                        <div className="avatar">
-                                                            <img className="avatar" src="../assets/images/xs/avatar2.jpg" alt="avatar">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>Sara Hopkins</div>
-                                                        <div className="text-muted">Mechanical</div>
-                                                    </td>
-                                                    <td>197</td>
-                                                    <td>98.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>41</td>
-                                                    <td className="w40">
-                                                        <div className="avatar">
-                                                            <img className="avatar" src="../assets/images/xs/avatar3.jpg" alt="avatar">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>Allen Collins</div>
-                                                        <div className="text-muted">M.C.A.</div>
-                                                    </td>
-                                                    <td>197</td>
-                                                    <td>98.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>17</td>
-                                                    <td className="w40">
-                                                        <div className="avatar">
-                                                            <img className="avatar" src="../assets/images/xs/avatar4.jpg" alt="avatar">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>Erin Gonzales</div>
-                                                        <div className="text-muted">Arts</div>
-                                                    </td>
-                                                    <td>194</td>
-                                                    <td>97.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>57</td>
-                                                    <td className="w40">
-                                                        <div className="avatar">
-                                                            <img className="avatar" src="../assets/images/xs/avatar5.jpg" alt="avatar">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>Claire Peters</div>
-                                                        <div className="text-muted">Science</div>
-                                                    </td>
-                                                    <td>192</td>
-                                                    <td>95.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>85</td>
-                                                    <td className="w40">
-                                                        <div className="avatar">
-                                                            <img className="avatar" src="../assets/images/xs/avatar6.jpg" alt="avatar">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>Claire Peters</div>
-                                                        <div className="text-muted">Science</div>
-                                                    </td>
-                                                    <td>192</td>
-                                                    <td>95.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>9</td>
-                                                    <td className="w40">
-                                                        <div className="avatar">
-                                                            <img className="avatar" src="../assets/images/xs/avatar7.jpg" alt="avatar">
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>Claire Peters</div>
-                                                        <div className="text-muted">Science</div>
-                                                    </td>
-                                                    <td>191</td>
-                                                    <td>95.00</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div className="card-footer d-flex justify-content-between">
-                                        <div className="font-14"><span>Measure How Fast You’re Growing Monthly Recurring Revenue. <a href="#">View All</a></span></div>
-                                        <div>
-                                            <button type="button" className="btn btn-primary">Export</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-xl-6 col-lg-6 col-md-12">
-                                <div className="card">
-                                    <div className="card-header">
-                                        <h3 className="card-title">Performance</h3>
-                                    </div>
-                                    <div className="card-body">
-                                        <div id="apex-radar-multiple-series"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --> */}
+                        
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="card">

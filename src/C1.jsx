@@ -1,17 +1,21 @@
 import  { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+
+
+
+
+// import   "./css/bootstrap.min.css";
+// import   "./css/materialdesignicons.min.css";
+// import   "./css/tiny-slider.css";
+// import   "./css/tiny-slider.css.map";
+// import   "./css/swiper.min.css";
+// import   "./css/style.min.css";
+// import   "./css/style1.css";
 
 
 import "./images/favicon2.png";
-// import "./css/bootstrap.min.css";
-// import "./css/materialdesignicons.min.css";
-// import "./css/tiny-slider.css";
-// import "./css/tiny-slider.css.map";
-// import "./css/swiper.min.css";
-// import "./css/style.min.css";
-// import "./css/style1.css";
-
-
-import logo from "./images/Programming-amico.svg";
+import logo from "./images/Programming-amico.svg";  
 import bg from "./images/bg-home.png";
 import shape from "./images/testi/shape.png"
 import shape2 from "./images/testi/shape-2.png"
@@ -67,22 +71,21 @@ const C1 = () => {
         document.head.appendChild(link7); 
 
 
-        var link8 = document.createElement("link");
-        link8.href = "https://unicons.iconscout.com/release/v4.0.0/css/line.css";
-        link8.rel = "stylesheet";
-        document.head.appendChild(link8);
-    
-        var link9 = document.createElement("link");
-        link9.href = "https://unpkg.com/swiper@8/swiper-bundle.min.css";
-        link9.rel = "stylesheet";
-        document.head.appendChild(link9);
       },[]);
     useEffect(() => {
        
      
    
-   
+        var link8 = document.createElement("link");
+        link8.href = "https://unicons.iconscout.com/release/v4.0.0/css/line.css";
+        link8.rel = "stylesheet";
+        document.head.appendChild(link8);
 
+        var link9 = document.createElement("link");
+        link9.href = "https://unpkg.com/swiper@8/swiper-bundle.min.css";
+        link9.rel = "stylesheet";
+        document.head.appendChild(link9);
+    
 
     
 
@@ -106,17 +109,15 @@ const C1 = () => {
     script6.async = true;
     document.body.appendChild(script6);
 
-    const script7 = document.createElement("script");
-    script7.src = "/js/app.js";
-    script7.async = true;
-    document.body.appendChild(script7);
-
     const script2 = document.createElement("script");
     script2.src = "/js/counter.init.js";
     script2.async = true;
     document.body.appendChild(script2);
 
-   
+    const script7 = document.createElement("script");
+    script7.src = "/js/app.js";
+    script7.async = true;
+    document.body.appendChild(script7);
 
     const script3 = document.createElement("script");
     script3.src = "/js/js1.js";
@@ -124,13 +125,13 @@ const C1 = () => {
     document.body.appendChild(script3);
 
     return () => {
-        document.body.removeChild(script7);
-        document.body.removeChild(script1);
-        document.body.removeChild(script2);
-        document.body.removeChild(script3);
-        document.body.removeChild(script4);
-        document.body.removeChild(script5);
-        document.body.removeChild(script6);
+        // document.body.removeChild(script7);
+        // document.body.removeChild(script1);
+        // document.body.removeChild(script2);
+        // document.body.removeChild(script3);
+        // document.body.removeChild(script4);
+        // document.body.removeChild(script5);
+        // document.body.removeChild(script6);
 
       }
 }, []);
@@ -172,7 +173,7 @@ const C1 = () => {
                     </li>
                 </ul>
                 <div className="ms-auto ps-2 ps-lg-0">
-                    <a href="https://web.facebook.com/esisba.edu?_rdc=1&_rdr" className="btn btn-dark rounded-pill my-3 my-lg-0" >Login</a>
+                    <a className="btn btn-dark rounded-pill my-3 my-lg-0" ><Link  to="/login"  replace style={{textDecoration:"none",color:"white"}}>Login</Link></a>
                 </div>
             </div>
         </div>
