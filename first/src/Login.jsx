@@ -91,7 +91,6 @@ function Login() {
 
   return (
     <div className={`container bdy ${isSignUp ? 'sign-up-mode' : ''}`}   >
-    {/* <div className='container sign-up-mode'> */}
 
       <div className="forms-container">
         <div className="signin-signup">

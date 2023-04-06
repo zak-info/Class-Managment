@@ -1,14 +1,8 @@
 import  { useState, useEffect,useContext } from 'react';
-import Auth from "./contexts/Auth";
-import { logout } from "./services/AuthApi";
 
-
-
-
-// import "./assets/plugins/bootstrap/css/bootstrap.min.css";
-// import "./assets/plugins/summernote/dist/summernote.css";
-// import  "./assets/css/style.min.css"
-
+import "./assets/plugins/bootstrap/css/bootstrap.min.css";
+import "./assets/plugins/summernote/dist/summernote.css";
+import  "./assets/css/style.min.css"
 
 
 import avatar1 from "./assets/images/xs/avatar1.jpg";
@@ -22,98 +16,84 @@ import dark from "./assets/images/themes/dark.png"
 import rtl from "./assets/images/themes/rtl.png"
 
 
+const Ap = () => {
 
-
-
-
-const Home = () => {
-    const { isAuthenticated, setIsAuthenticated } = useContext(Auth);
-    const handleLogout = () => {
-        logout();
-        setIsAuthenticated(false);
-      }
-    
-
-    useEffect(()=> {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = "/assets/plugins/bootstrap/css/bootstrap.min.css";
-        document.head.appendChild(link); 
-
-        const link2 = document.createElement('link');
-        link2.rel = 'stylesheet';
-        link2.href = "/assets/plugins/summernote/dist/summernote.css";
-        document.head.appendChild(link2); 
-
-        const link3 = document.createElement('link');
-        link3.rel = 'stylesheet';
-        link3.href = "/assets/css/style.min.css";
-        document.head.appendChild(link3); 
-      },[]);
-
-    const script4= document.createElement("script");
-    script4.src = "/assets/bundles/counterup.bundle.js";
-    script4.async = true;
-
-       
     const script7 = document.createElement("script");
     script7.src = "https://code.jquery.com/jquery-3.6.0.min.js";
-    script7.async = true;    
+    script7.async = true;  
 
 
-    const script1 = document.createElement("script");
-    script1.src = "/assets/bundles/lib.vendor.bundle.js";
-    script1.async = true;
+  const script1 = document.createElement("script");
+  script1.src = "/assets/bundles/lib.vendor.bundle.js";
+  script1.async = true;
 
-    
+  const script4= document.createElement("script");
+  script4.src = "/assets/bundles/counterup.bundle.js";
+  script4.async = true;
 
-    const script5 = document.createElement("script");
-    script5.src = "/assets/bundles/apexcharts.bundle.js";
-    script5.async = true;
+  const script5 = document.createElement("script");
+  script5.src = "/assets/bundles/apexcharts.bundle.js";
+  script5.async = true;
 
-    const script6 = document.createElement("script");
-    script6.src = "/assets/bundles/summernote.bundle.js";
-    script6.async = true;
-
-    const script = document.createElement("script");
-    script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
-    script.async = true;
-
-    const script2 = document.createElement("script");
-    script2.src = "/assets/js/core.js";
-    script2.async = true;
-
-
-    
-
-    useEffect(() => {
-        // document.body.appendChild(script);
-        // document.body.appendChild(script7);
-        // document.body.appendChild(script1);
-        // document.body.appendChild(script2);
-        // document.body.appendChild(script6);
-        // document.body.appendChild(script4);
-        // document.body.appendChild(script5);
+  const script6 = document.createElement("script");
+  script6.src = "/assets/bundles/summernote.bundle.js";
+  script6.async = true;
 
 
 
-    // return () => {
-
-    //     // document.body.removeChild(script1);
-    //     // document.body.removeChild(script2);
-    //     // document.body.removeChild(script4);
-    //     // document.body.removeChild(script5);
-    //     // document.body.removeChild(script6);
-
-    //   }
-    
-    }, []);
+  const script2 = document.createElement("script");
+  script2.src = "/assets/js/core.js";
+  script2.async = true;
 
 
+  
 
-    return ( 
-        <div>
-            <div className="page-loader-wrapper">
+  useEffect(() => {
+      document.body.appendChild(script7);
+      document.body.appendChild(script1);
+      document.body.appendChild(script4);
+      document.body.appendChild(script5);
+      document.body.appendChild(script6);
+      document.body.appendChild(script2);
+
+
+
+  return () => {
+
+      document.body.removeChild(script1);
+      document.body.removeChild(script2);
+      document.body.removeChild(script4);
+      document.body.removeChild(script5);
+      document.body.removeChild(script6);
+
+    }
+  
+  }, []);
+
+
+  const [username, setUsername] = useState("");
+  const [year, setYear] = useState("");
+  const [classR, setClassR] = useState("");
+  const [gender, setGender] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [address, setAddress] = useState("");
+  const [birthDay, setBirthDay] = useState("");
+
+
+  const handleAddStudent = async (event)=>{
+      console.log(username);
+      console.log(year);
+      console.log(classR);
+      console.log(gender);
+      console.log(mobile);
+      console.log(address);
+      console.log(birthDay);
+
+  }
+
+  return ( 
+<div  className="font-muli theme-cyan gradient">
+<div className="page-loader-wrapper">
     <div className="loader">
     </div>
 </div>
@@ -125,12 +105,11 @@ const Home = () => {
                 <a className="header-brand" href="index.html"><i className="fa fa-graduation-cap brand-logo"></i></a>
                 <div className="dropdown">
                     <a href="javascript:void(0)" className="nav-link icon menu_toggle"><i className="fe fe-align-center"></i></a>
-                   
                     <a href="javascript:void(0)" className="nav-link icon settingbar"><i className="fe fe-settings"></i></a>
                 </div>
             </div>
             <div className="hright">
-                <a  className="nav-link icon settingbar" onClick={handleLogout}><i className="fe fe-power"></i></a>                
+                <a href="login.html" className="nav-link icon settingbar"><i className="fe fe-power"></i></a>                
             </div>
         </div>
     </div>
@@ -138,7 +117,6 @@ const Home = () => {
         <a href="javascript:void(0)" className="p-3 settingbar float-right"><i className="fa fa-close"></i></a>
         <ul className="nav nav-tabs" role="tablist">
             <li className="nav-item"><a className="nav-link active" data-toggle="tab" href="#Settings" aria-expanded="true">Settings</a></li>
-            {/* <!-- <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#activity" aria-expanded="false">Activity</a></li> --> */}
         </ul>
         <div className="tab-content">
             <div role="tabpanel" className="tab-pane vivify fadeIn active" id="Settings" aria-expanded="true">
@@ -211,13 +189,7 @@ const Home = () => {
                                 <span className="custom-switch-indicator"></span>
                             </label>
                         </li>
-                        {/* <!-- <li>
-                            <label className="custom-switch">
-                                <span className="custom-switch-description">Box Shadow</span>
-                                <input type="checkbox" name="custom-switch-checkbox" className="custom-switch-input btn-boxshadow">
-                                <span className="custom-switch-indicator"></span>
-                            </label>
-                        </li> --> */}
+                       
                         <li>
                             <label className="custom-switch">
                                 <span className="custom-switch-description">RTL Support</span>
@@ -310,10 +282,10 @@ const Home = () => {
             </div>
         </div>        
     </div>
-    
+   
     <div id="left-sidebar" className="sidebar">
         <h5 className="brand-name">LearnUp<a href="javascript:void(0)" className="menu_option float-right"><i className="icon-grid font-16" data-toggle="tooltip" data-placement="left" title="Grid & List Toggle"></i></a></h5>
-        
+        =
         <div className="tab-content mt-3">
             <div className="tab-pane fade show active" id="menu-uni" role="tabpanel">
                 
@@ -323,9 +295,8 @@ const Home = () => {
                         <li><a href="professors.html"><i className="fa fa-black-tie"></i><span>Professors</span></a></li>
                         <li><a href="students.html"><i className="fa fa-users"></i><span>Students</span></a></li>
                         <li><a href="library.html"><i className="fa fa-book"></i><span>Library</span></a></li>
-                        
                         <li><a href="events.html"><i className="fa fa-calendar"></i><span>emploi de temps</span></a></li>
-                       </ul>
+                        </ul>
                 </nav>
             </div>
             <div className="tab-pane fade" id="menu-admin" role="tabpanel">
@@ -347,23 +318,23 @@ const Home = () => {
     <div className="page">
         <div className="section-body" id="page_top">
             <div className="container-fluid">
-                
+               
             </div>
         </div>
+       
         <div className="section-body">
             <div className="container-fluid">
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex justify-content-between align-items-center ">
                     <div className="header-action">
-                        <h1 className="page-title">Dashboard</h1>
+                        <h1 className="page-title">Students</h1>
                         <ol className="breadcrumb page-breadcrumb">
                             <li className="breadcrumb-item"><a href="#">Ericsson</a></li>
-                            <li className="breadcrumb-item"><a href="#">University</a></li>
-                            <li className="breadcrumb-item active" aria-current="page">Dashboard</li>
+                            <li className="breadcrumb-item active" aria-current="page">Students</li>
                         </ol>
                     </div>
                     <ul className="nav nav-tabs page-header-tab">
-                        <li className="nav-item"><a className="nav-link active" data-toggle="tab" href="#admin-Dashboard">Dashboard</a></li>
-
+                        <li className="nav-item"><a className="nav-link active" data-toggle="tab" href="#Student-all">List View</a></li>
+                        <li className="nav-item"><a className="nav-link" data-toggle="tab" href="#Student-add">Add</a></li>
                     </ul>
                 </div>
             </div>
@@ -405,17 +376,25 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-                    
+                   
                 </div>
                 <div className="tab-content">
                     <div className="tab-pane fade show active" id="admin-Dashboard" role="tabpanel">
                         <div className="row clearfix">
-                            
+                          
                         </div>                
                         
                         <div className="row">
                             <div className="col-md-12">
-                                <div className="card">
+                            
+                                
+                                        <div className="section-body mt-4">
+                                        <div className="container-fluid">
+                                            <div className="tab-content">
+                                                <div className="tab-pane active" id="Student-all">
+                        
+                       
+                        <div className="card"> 
                                     <div className="card-header">
                                         <h3 className="card-title">New Student List</h3>
                                         <div className="card-options">
@@ -512,8 +491,106 @@ const Home = () => {
                                                 </tbody>
                                             </table>
                                         </div>  
+                                    </div> 
+                                 </div>
+                    </div>
+                   
+                    <div className="tab-pane" id="Student-add">
+                        <div className="row clearfix">
+                            <div className="col-lg-8 col-md-12 col-sm-12">
+                                <div className="card">
+                                    <div className="card-header">
+                                        <h3 className="card-title">Basic Information</h3>
+                                        
                                     </div>
+                                    <form className="card-body">
+                                        <div className="form-group row">
+                                            <label className="col-md-3 col-form-label">الاسم الكامل <span className="text-danger">*</span></label>
+                                            <div className="col-md-9">
+                                                <input type="text" className="form-control" value={username}  onChange={(e) => setUsername(e.target.value)} placeholder="Enter First name"/>
+                                            </div>
+                                        </div>
+                                        <div className="form-group row">
+                                            <label className="col-md-3 col-form-label">تاريخ الازدياد  <span className="text-danger">*</span></label>
+                                            <div className="col-md-9">
+                                                <input data-provide="datepicker" data-date-autoclose="true" value={birthDay} onChange={(e) => setBirthDay(e.target.value)} className="form-control" placeholder="Date of Birth"/>
+                                            </div>
+                                        </div>
+                                       
+                                        <div className="form-group row">
+                                            <label className="col-md-3 col-form-label">الجنس <span className="text-danger">*</span></label>
+                                            <div className="col-md-9">
+                                                <select className="form-control input-height" name="gender" value={gender}   onChange={(e) => setGender(e.target.value)}>
+                                                    <option value="">Select...</option>
+                                                    <option value="male">ذكر</option>
+                                                    <option value="female">انثي</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                       
+                                        <div className="form-group row">
+                                            <label className="col-md-3 col-form-label">السنة <span className="text-danger">*</span></label>
+                                            <div className="col-md-9">
+                                                <select className="form-control input-height" name="department" value={year} onChange={(e) => setYear(e.target.value)}>
+                                                    <option value="">Select...</option>
+                                                    <option value="1">السنة الاولي</option>
+                                                    <option value="2">السنة الثانية</option>
+                                                    <option value="3">السنة الثالثة</option>
+                                                    <option value="4">السنة الرابعة</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div className="form-group row">
+                                            <label className="col-md-3 col-form-label">القسم <span className="text-danger">*</span></label>
+                                            <div className="col-md-9">
+                                                <select className="form-control input-height" name="department" value={classR} onChange={(e) => setClassR(e.target.value)}>
+                                                    <option value="">Select...</option>
+                                                    <option value="1">القسم الاول</option>
+                                                    <option value="2">القسم الثاني</option>
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div className="form-group row">
+                                            <label className="col-md-3 col-form-label">العنوان <span className="text-danger">*</span></label>
+                                            <div className="col-md-9">
+                                                <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} className="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div className="form-group row">
+                                            <label className="col-md-3 col-form-label">هاتف الرلي <span className="text-danger">*</span></label>
+                                            <div className="col-md-9">
+                                                <input type="text" value={mobile} onChange={(e) => setMobile(e.target.value)} className="form-control"/>
+                                            </div>
+                                        </div>
+                                        
+                                       
+                                        <div className="form-group row">
+                                            <label className="col-md-3 col-form-label">الانشاا بملف <span className="text-danger">*</span></label>
+                                            <div className="col-md-9">
+                                            <div className="col-sm-12">
+                                            <div className="form-group mt-2 mb-3">
+                                                <input type="file" className="dropify"/>
+                                                <small id="fileHelp" className="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                                            </div>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="col-sm-12">
+                                            <button type="button" className="btn btn-primary" onClick={handleAddStudent}>Submit</button>
+                                            <button type="submit" className="btn btn-outline-secondary">Cancel</button>
+                                        </div>
+                                    </form>
                                 </div>
+                            </div>
+                                         
+                                
+                            </div> 
+                        </div>
+                    </div>
+            </div>
+        </div>
                             </div>
                         </div>
                     </div>
@@ -793,8 +870,11 @@ const Home = () => {
     </div>    
 </div>
 
-        </div>
-     );
+
+
+</div>
+
+   );
 }
  
-export default Home;
+export default Ap;
