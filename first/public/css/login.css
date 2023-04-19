@@ -6,7 +6,11 @@
   box-sizing: border-box;
 }
 
-body,
+.bdy{
+  width: 100%;
+}
+
+.bdy,
 input {
   font-family: "Poppins", sans-serif;
 }
@@ -84,7 +88,7 @@ form.sign-in-form {
 
 .input-field input:focus {
     outline: none; /* Remove default focus outline */
-    border: 0px solid #5995fd; /* Add border when input is focused */
+    border: 0px solid #2fb4ae; /* Add border when input is focused */
  
   }
   
@@ -162,7 +166,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #4481eb 0%, #04befe 100%);
+  background-image: linear-gradient(-45deg, #2fb4ae 0%, #2fb4ae 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -399,7 +403,7 @@ table.dirar tbody > tr:hover {
   position: absolute;
   top: 130px;
   right: 33px;
-  background-color: #5290ee;
+  background-color: #2fb4ae;
   border-radius: 4px;
   border: 0;
   box-shadow: rgba(21, 102, 208, 0.5) 0 -1px 3px 0 inset,rgba(9, 77, 161, 0.1) 0 3px 6px 0;
@@ -424,7 +428,7 @@ table.dirar tbody > tr:hover {
 }
 
 .button-66:hover {
-  background-color: #2370db;
+  background-color: #2fb4ae;
   transform: translateY(-2px);
 }
 
@@ -512,7 +516,7 @@ form input  {
   padding: 0 45px;
   font-size: 18px;
   background: none;
-  caret-color: #5372F0;
+  caret-color: #2fb4ae;
   border-radius: 5px;
   border: 1px solid #bfbfbf;
   border-bottom-width: 2px;
@@ -521,7 +525,7 @@ form input  {
 
 form .field input:focus,
 form .field.valid input {
-  border-color: #5372F0;
+  border-color: #2fb4ae;
 }
 
 form .field.shake input,
@@ -644,13 +648,13 @@ form input[type="submit"]{
   color: #fff;
   padding: 0;
   border: none;
-  background: #5372F0;
+  background: #2fb4ae;
   cursor: pointer;
   border-bottom: 2px solid rgba(0,0,0,0.1);
   transition: all 0.3s ease;
 }
 form input[type="submit"]:hover{
-  background: #2c52ed;
+  background: #2fb4ae;
 }
 
 
@@ -705,7 +709,7 @@ form input[type="submit"]:hover{
   position: absolute;
   top: 130px;
   right: 240px;
-  background-color: #5290ee;
+  background-color: #2fb4ae;
   border-radius: 4px;
   border: 0;
   box-shadow: rgba(21, 102, 208, 0.5) 0 -1px 3px 0 inset,rgba(9, 77, 161, 0.1) 0 3px 6px 0;
@@ -730,7 +734,7 @@ form input[type="submit"]:hover{
 }
 
 .button-88:hover {
-  background-color: #2370db;
+  background-color: #2fb4ae;
   transform: translateY(-2px);
 }
 
@@ -771,7 +775,7 @@ form input[type="submit"]:hover{
 }
 
 .button-99:hover {
-  background-color: #2370db;
+  background-color: #2fb4ae;
   transform: translateY(-2px);
 }
 
@@ -792,7 +796,7 @@ form input[type="submit"]:hover{
   border: 0;
   box-shadow: rgba(100, 102, 208, 99) 0 -1px 3px 0 inset,rgba(9, 77, 161, 0.1) 0 3px 6px 0;
   box-sizing: border-box;
-  color: #5290ee;
+  color: #2fb4ae;
   cursor: pointer;
   display: inherit;
   font-family: "Space Grotesk",-apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -812,7 +816,7 @@ form input[type="submit"]:hover{
 }
 
 .button-77:hover {
-  background-color: #2370db;
+  background-color: #2fb4ae;
   transform: translateY(-2px);
 }
 
@@ -829,7 +833,157 @@ form input[type="submit"]:hover{
 }
 
 
-/* .item-list {
-  padding: 20px;
-  margin-bottom: 20px;
-} */
+/* Style the input */
+.react-datepicker-wrapper {
+  position: relative;
+}
+
+.react-datepicker-wrapper input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #333;
+  width: 10rem;
+  cursor: pointer;
+}
+
+.react-datepicker-wrapper input:focus {
+  outline: none;
+}
+
+/* Style the calendar pop-up */
+.react-datepicker-popper {
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Style the calendar header */
+.react-datepicker__header {
+  background-color: #f2f2f2;
+  border: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+.react-datepicker__current-month {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Style the calendar navigation buttons */
+.react-datepicker__navigation {
+  background: linear-gradient(to right, #4f93ce, #0c6683);
+  color: white;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.react-datepicker__navigation:hover {
+  background: linear-gradient(to right, #0c6683, #4f93ce);
+  transform: translateY(-2px);
+}
+
+
+
+/* Style the calendar weekdays */
+.react-datepicker__day-name {
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Style the calendar days */
+.react-datepicker__day {
+  display: inline-block;
+  width: 1.7rem;
+  height: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
+  margin: 0.1rem;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #333;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f2f2f2;
+}
+
+/* Style the selected day */
+.react-datepicker__day--selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: #007bff;
+}
+
+/* Style the today button */
+.react-datepicker__today-button {
+  display: block;
+  margin-top: 0.5rem;
+  border: none;
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.react-datepicker__today-button:hover {
+  background-color: #e6e6e6;
+}
+
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+}
+
+.react-datepicker__day-name {
+  text-align: center;
+  font-weight: bold;
+}
+
+.react-datepicker__day {
+  margin: 0.25rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f2f2f2;
+}
+
+.react-datepicker__day--selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: #007bff;
+}
+
+
+

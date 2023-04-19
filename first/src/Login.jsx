@@ -1,6 +1,11 @@
 import React, { useState, useEffect , useContext} from 'react';
 import Auth from "./contexts/Auth";
 import { login } from "./services/AuthApi";
+import axios from "axios";
+import * as resetStyles from 'react-style-reset';
+import { useLocation } from 'react-router-dom';
+
+
 
 
  
@@ -14,6 +19,14 @@ import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 function Login() {
+  // const location = useLocation();
+
+  // useEffect(() => {
+  //   resetStyles();
+  // }, [location]);
+  
+
+
   const histr = useHistory(); 
   const [user, setUser] = useState({
     username: "",
@@ -30,10 +43,13 @@ function Login() {
   // },[histr,isAuthenticated]);
 
   useEffect(()=> {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = "/login.css";
-    document.head.appendChild(link); 
+    const link1 = document.createElement('link');
+    link1.rel = 'stylesheet';
+    link1.href = "/css/login.css";
+    document.head.appendChild(link1);
+    return () => {
+      document.head.removeChild(link1);
+    } 
   },[]);
 
   const data = {
@@ -51,37 +67,40 @@ function Login() {
   
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
+    let user={};
+
+    axios.get("http://localhost:4000/login", { params: { username: username, password: password } })
+    .then(response => {
+      // if(response.data.fullname!=="no"){
+        user=response.data;
+         if (user.fullname !== "no" ) {
+          setError("");
+          histr.push("/home")
+        } 
+         else {
+          setError("Invalid username or password.");
+        }
+
+      // }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+
+
     if (isLoading) return;
     setIsLoading(true);
     try {
-      // const user = await api.get("/login?email="+username+"&password="+password);
       if (username === "" || password === "") {
         setError("Please enter both username and password.");
       }
-       else if (username === "dd" || password === "dd") {
-        setError("");
-        // try {
-        //   setUser ={
-        //     username: username,
-        //     password: password
-        //   };
-          
-        
-        //   // const response =  login(user);
-        //   // setIsAuthenticated(response);
-        //   // console.log(response);
-        //   histr.push('/home');
-        // } catch ({ response }) {
-        //   console.log(response);
-        // }
-        histr.push('/home');
-
-    
-        // props.onLogin();
-      } 
-       else {
-        setError("Invalid username or password.");
-      }
+      //  else if (user.fullname !== "no" ) {
+      //   setError("");
+      //   histr.push("/home")
+      // } 
+      //  else {
+      //   setError("Invalid username or password.");
+      // }
     } catch (error) {
       console.error(error);
       setError("An error occurred. Please try again later.");

@@ -1,0 +1,478 @@
+progress {
+  width: 100%;
+  height: 10px;
+  appearance: none;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #ddd;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(to right, #1bd4f1, #17a2b8);
+  transition: all 0.3s ease-in-out;
+}
+
+progress::-moz-progress-bar {
+  background-color: linear-gradient(to right, #1bd4f1, #17a2b8);
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around flex-start;
+  margin-bottom: 50px;
+}
+
+.video2 {
+  width: 100%;
+  height: 100%;
+  margin: 10px;
+  border-radius: 10px 10px 10px 10px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.video {
+  width: 30%;
+  height: auto;
+  margin: 10px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+.video:last-child {
+  margin-right: auto;
+}
+
+.video:hover {
+  box-shadow: rgb(75, 75, 75)  50px;
+
+
+}
+
+
+@media (max-width: 768px) {
+  .video {
+    width: 100%;
+  }
+}
+
+
+.pdf-link {
+  height: 160px;
+  display: block;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  color: #333;
+}
+
+.spm {
+  display: block;
+  color:rgb(75, 75, 75);
+}
+
+.red-icon {
+  color: #17a2b8;
+}
+.red-icon:hover {
+  color: #0a7889;
+}
+
+.react-datepicker-wrapper {
+  position: relative;
+}
+
+/* .react-datepicker-wrapper input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color:none;
+  border: #333 solid 1px;
+  border-radius: 2px ;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #333;
+  width: 10rem;
+  cursor: pointer;
+} */
+.react-datepicker-wrapper input {
+
+}
+
+.react-datepicker-wrapper input:focus {
+  outline: none;
+}
+
+/* Style the calendar pop-up */
+.react-datepicker-popper {
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Style the calendar header */
+.react-datepicker__header {
+  background-color: #f2f2f2;
+  border: none;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 0.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+.react-datepicker__current-month {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Style the calendar navigation buttons */
+.react-datepicker__navigation {
+  background: linear-gradient(to right, #4f93ce, #0c6683);
+  color: white;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.react-datepicker__navigation:hover {
+  background: linear-gradient(to right, #0c6683, #4f93ce);
+  transform: translateY(-2px);
+}
+
+
+
+/* Style the calendar weekdays */
+.react-datepicker__day-name {
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Style the calendar days */
+.react-datepicker__day {
+  display: inline-block;
+  width: 1.7rem;
+  height: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
+  margin: 0.1rem;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #333;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f2f2f2;
+}
+
+/* Style the selected day */
+.react-datepicker__day--selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: #007bff;
+}
+
+/* Style the today button */
+.react-datepicker__today-button {
+  display: block;
+  margin-top: 0.5rem;
+  border: none;
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.react-datepicker__today-button:hover {
+  background-color: #e6e6e6;
+}
+
+.react-datepicker__day-names {
+  display: flex;
+  justify-content: space-between;
+}
+
+.react-datepicker__day-name {
+  text-align: center;
+  font-weight: bold;
+}
+
+.react-datepicker__day {
+  margin: 0.25rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.react-datepicker__day:hover {
+  background-color: #f2f2f2;
+}
+
+.react-datepicker__day--selected {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: #007bff;
+}
+
+
+.conta {
+  position: relative;
+  width: 100%;
+  height: 150px;
+}
+
+
+.add-button {
+  position: absolute;
+  background-color: #17a2b8;
+  border-radius: 50%;
+  border: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.add-icon {
+  color: #ffffff;
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(81, 80, 80, 0.5);
+  z-index: -1;
+  backdrop-filter: blur(5px);
+}
+
+.popup-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;  
+  padding: 20px;
+  width: 700px;
+  height: auto;
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.answer-button-container {
+  display: inline-block;
+  textAlign: left; 
+  padding: 5px;
+
+}
+
+
+.animated-button {
+  animation-name: button-up;
+  animation-duration: 0.9s;
+}
+
+@keyframes button-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-20px); }
+}
+
+
+/* .checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 5px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+}
+
+.checkbox-container input:checked + .checkmark {
+  background-color: #17a2b8;
+  animation: none;
+  transition: 0.2s;
+  animation: shine 1.5s ease-in-out 0s infinite;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked + .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .label-text {
+  margin-left: 45px;
+}
+
+@keyframes shine {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0 0 5px 2px #17a2b8;
+  }
+  100% {
+    box-shadow: none;
+  }
+} */
+
+.label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 12px;
+  
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  left: -20px;
+}
+
+.checkmark {
+  position: relative;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  margin-left: 10px;
+  /* margin-bottom: 2px; */
+  
+}
+
+.checkbox-container input:checked + .checkmark {
+  background-color: #24ddfa;
+  animation: none;
+  animation: shine 1s ease-in-out 0s infinite;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked + .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .label-text {
+  flex: 1;
+  word-break: break-all;
+}
+
+@keyframes shine {
+  0% {
+    box-shadow: none;
+  }
+  50% {
+    box-shadow: 0 0 5px 2px #a5eefa;
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+

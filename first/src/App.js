@@ -1,10 +1,17 @@
 import {BrowserRouter as Router,Route, Switch } from "react-router-dom";
 import  { useState, useEffect } from 'react';
 
+
 import Login from "./Login";
-import Ap from "./App2";
-// import C1 from './C1';
+import SignUp from "./SignUp";
+import Home from "./Home";
+// import HomePage from './HomePage';
 import Student from "./Student";
+import Courses from "./Courses";
+import SideBar from "./SideBar";
+import Exam from "./Exam";
+import Pass from "./Pass";
+
 // import { hasAuthenticated } from "./services/AuthApi";
 // import Auth from "./contexts/Auth"
 // import AuthenticatedRoute from "./services/AuthenticatedRoute";
@@ -15,6 +22,7 @@ import Student from "./Student";
 
 
 function App() {
+ 
   // const [isAuthenticated,setIsAuthenticated] = useState(hasAuthenticated());
   
   return (
@@ -39,8 +47,19 @@ function App() {
 
     //   </Router>
     //   </Auth.Provider>
-    <Student/>
-
+    <Router>
+      <Switch>
+         <Route exact path={"/"} component={SideBar} />
+        <Route exact path={"/login"} component={Login} />
+        <Route exact path={"/signup"} component={SignUp} />
+        <Route exact path={"/home"} component={Home} />
+        <Route exact path={"/students"} component={Student} />
+        <Route exact path={"/courses"} component={Courses} />
+        <Route exact path={"/exams"} component={Exam} />
+        <Route exact path={"/pass"} component={Pass} />
+      </Switch>
+    
+    </Router>
   );
 }
 
