@@ -98,9 +98,9 @@ const Exam =require("./models/Exam");
 
 app.get('/login', async (req, res) => {
 	try {
-		const result = await Student.findOne({_id:req.query.username+req.query.password},{_id:0});
+		const result = await Student.findOne({_id:req.query.username+req.query.password});
 		if (result){
-		
+		console.log(result);
 		res.json(result);
 
 		// }
@@ -114,6 +114,26 @@ app.get('/login', async (req, res) => {
 		res.status(500).send('Internal Server Error');
 	}
 	});
+
+	app.post('/slogin', async (req, res) => {
+		console.log(req.body);
+		try {
+			const result = await Student.findOne({_id:req.body.username+req.body.password});
+			if (result){
+			// console.log(result);
+			res.json(result);
+	
+			// }
+			}else{
+			res.json({fullname:"no"});	
+	
+			}
+			
+		} catch (err) {
+			console.error(err);
+			res.status(500).send('Internal Server Error');
+		}
+		});
 
 	app.get('/create', async (req, res) => {
 		try {

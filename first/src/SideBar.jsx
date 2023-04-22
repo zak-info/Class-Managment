@@ -52,6 +52,9 @@ const SideBar = (props) => {
 
         } 
       },[]);
+    //   const script3 = document.createElement("script");
+    //   script3.src = "https://code.jquery.com/jquery-3.6.0.min.js";
+    //   script3.async = true;
 
       const script1 = document.createElement("script");
       script1.src = "/assets/bundles/lib.vendor.bundle.js";
@@ -79,7 +82,7 @@ const SideBar = (props) => {
       
     
       useEffect(() => {
-        //   document.body.appendChild(script7);
+        //   document.body.appendChild(script3);
           document.body.appendChild(script1);
           document.body.appendChild(script4);
           document.body.appendChild(script5);
@@ -89,7 +92,7 @@ const SideBar = (props) => {
     
     
       return () => {
-    
+        //   document.body.removeChild(script3);
           document.body.removeChild(script1);
           document.body.removeChild(script2);
           document.body.removeChild(script4);
@@ -221,7 +224,7 @@ useEffect(()=>{
         </div>
     </div>
     <div id="left-sidebar" className="sidebar">
-        <h5 className="brand-name">LearnUp<a href="javascript:void(0)" className="menu_option float-right"><i className="icon-grid font-16" data-toggle="tooltip" data-placement="left" title="Grid & List Toggle"></i></a></h5>
+        <h5 className="brand-name" style={{fontFamily: 'Tajawal,sans-serif'}}>الخبير<a href="javascript:void(0)" className="menu_option float-right"><i className="icon-grid font-16" data-toggle="tooltip" data-placement="left" title="Grid & List Toggle"></i></a></h5>
         =
         <div className="tab-content mt-3">
             <div className="tab-pane fade show active" id="menu-uni" role="tabpanel">
@@ -232,7 +235,7 @@ useEffect(()=>{
                         <li className={item === "students" ? "active" : ""}><a href="/students"><i className="fa fa-users"></i><span style={{fontFamily: 'Tajawal,sans-serif'}}>التلاميذ</span></a></li>
                         <li className={item === "courses" ? "active" : ""} ><a href="/courses"><i className="fa fa-book"></i><span style={{fontFamily: 'Tajawal,sans-serif'}}>دروس</span></a></li>
                         <li className={item === "exams" ? "active" : ""}><a href="/exams"><i className="fa fa-black-tie"></i><span style={{fontFamily: 'Tajawal,sans-serif'}}>الإمتحانات</span></a></li>
-                        <li className={item === "pass" ? "active" : ""}><a href="/exams"><i className="fa fa-black-tie"></i><span style={{fontFamily: 'Tajawal,sans-serif'}}>غرفة الإمتحان</span></a></li>
+                        <li className={item === "pass" ? "active" : ""}><a href="/pass"><i className="fa fa-black-tie"></i><span style={{fontFamily: 'Tajawal,sans-serif'}}>غرفة الإمتحان</span></a></li>
                         </ul>
                 </nav>
             </div>

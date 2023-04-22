@@ -131,14 +131,14 @@ const SignUp = () => {
 
               <div className="input-field">
               <FontAwesomeIcon icon={faSchool} className="user" />
-                <input className='inpt' type="text" style={{fontFamily: 'Tajawal,sans-serif'}} placeholder="الموسسة" value={est} onChange={(e) => setEst(e.target.value)}  />
+                <input className='inpt' type="text" style={{fontFamily: 'Tajawal,sans-serif'}} placeholder="المؤسسة" value={est} onChange={(e) => setEst(e.target.value)}  />
               </div>
 
               <div className="input-field">
               <FontAwesomeIcon icon={faLevelUpAlt} className="user" />
-                    <select className="inpt" name="department" value={level} onChange={(e) => setLevel(e.target.value)} style={{fontFamily: 'Tajawal,sans-serif',border:"none",color:"#acacac"}} >
-                        <option value="">المستوا</option>
-                        <option value="1">السنة الاولي</option>
+                    <select className="inpt" placeholder='المستوى' name="department" value={level} onChange={(e) => setLevel(e.target.value)} style={{fontFamily: 'Tajawal,sans-serif',border:"none",color:"#acacac"}} >
+                        {/* <option value="">المستوا</option> */}
+                        <option value="1">السنة الاولى</option>
                         <option value="2">السنة الثانية</option>
                         <option value="3">السنة الثالثة</option>
                         <option value="4">السنة الرابعة</option>

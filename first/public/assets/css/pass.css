@@ -11,7 +11,7 @@
   }
 
   .sidebar {
-    width: 100px;
+    width: 130px;
     height: 100%;
     position: fixed;
     right: 0;
@@ -24,9 +24,9 @@
   .circle-btn {
     display: inline-block;
     padding: 10px;
-    margin: 5px 10px 5px 10px;
+    /* margin-right: 10px; */
     border-radius: 50%;
-    background: #7ed957;
+    background: #f7b424;
     color: #fff;
     font-size: 18px;
    
@@ -37,7 +37,18 @@
   }
   
   .circle-btn:hover {
-    background-image: linear-gradient(to bottom right, #5ea73e, #7ed957);
+    background-image: linear-gradient(to bottom right, #a79b3e, #d9bd57);
+  }
+
+  .circle-div {
+    display: flex; /* set display to flex */
+    align-items: center; /* align items vertically in the center */
+    margin-bottom: 10px ;
+    margin-left: 2px;
+    
+  }
+  .circle-div:first-child{
+    margin-top: 5px;
   }
 
 
@@ -62,6 +73,105 @@
 }
 
 
+.button-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.left-button {
+  display: inline-block;
+  margin-right: 150px;
+}
+
+.right-button {
+  display: inline-block;
+  margin-left: 150px;
+}
+
+
+
+
+.game {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* make the parent element a positioning context for absolute positioning of children */
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.question-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.question-circle {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.question {
+  font-size: 18px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.answer-circle {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.answer {
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+}
+
+/* Add a green line between matched question and answer circles */
+.question-circle.matched::before,
+.answer-circle.matched::before {
+  content: '';
+  position: absolute;
+  top: 50%; /* align the element vertically in the middle of the parent element */
+  height: 2px;
+  background-color: green;
+}
+
+ 
+
+
+
 
 
 
@@ -103,7 +213,7 @@
 
   
 
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+  /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 *{
   box-sizing: border-box;
 }
@@ -151,4 +261,4 @@ ul li label{
 .but:focus{
   outline: none;
   background-color: #44b927;
-}
+} */

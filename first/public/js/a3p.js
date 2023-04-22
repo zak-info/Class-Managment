@@ -21,8 +21,7 @@ window.addEventListener('scroll', (ev) => {
 //
 /********************* light-dark js ************************/
 //
-{
-const modeBtn = document.getElementById("mode");
+{const modeBtn = document.getElementById("mode");
 
 modeBtn.addEventListener("click", (e) => {
   let theme = localStorage.getItem("theme");
@@ -33,8 +32,8 @@ modeBtn.addEventListener("click", (e) => {
     document.body.removeAttribute("data-layout-mode");
     localStorage.setItem("theme", "light");
   }
-});
-}
+});}
+
 // function BTN(btn){
 //   btn.addEventListener("click", (e) => {
 //     let theme = localStorage.getItem("theme");

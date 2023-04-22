@@ -75,7 +75,7 @@ const  Exam= () => {
     const [matchL, setMatchL] = useState("");
     const [matchCouples,setMatchCouples] = useState([]);
     function handleAddCouple(){
-        setMatchCouples(pre=>[...pre,[matchL,matchR]]);
+        setMatchCouples(pre=>[...pre,{a:matchL,q:matchR}]);
         setMatchL("");
         setMatchR("");
         console.log(matchCouples);
@@ -85,7 +85,7 @@ const  Exam= () => {
 
         console.log([l,r]);
         console.log(matchCouples);
-        const updatedAnswers = matchCouples.filter((i) => i[0] != l && i[1] != r);
+        const updatedAnswers = matchCouples.filter((i) => i.a != l && i.q != r);
         // set the state to the new array
         setMatchCouples(updatedAnswers);
     }
@@ -553,11 +553,11 @@ function handleDeleteExam(title,startTime){
                                                 </div>
                                                 {matchCouples.map((couple,index) => (
                                                 <div className="row justify-content-center" key={index} style={{marginTop:"auto"}}>
-                                                <a href="javascript:void(0)" onClick={()=>handleDeleteCouple(couple[0],couple[1])} style={{marginRight:"10px"}}><i className="fa fa-trash-o text-danger"></i></a>
+                                                <a href="javascript:void(0)" onClick={()=>handleDeleteCouple(couple.a,couple.q)} style={{marginRight:"10px"}}><i className="fa fa-trash-o text-danger"></i></a>
 
                                                 <div className="form-group row align-items-center">
                                                     <div className="col-md-6 mb-3">
-                                                    <button type="button" className="btn btn-primary" >{couple[0]}</button>
+                                                    <button type="button" className="btn btn-primary" >{couple.a}</button>
                                                     </div>
                                                     <div className="col-md-3 mb-3 text-center">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="36" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16" >
@@ -565,7 +565,7 @@ function handleDeleteExam(title,startTime){
                                                     </svg>
                                                     </div>
                                                     <div className="col-md-3 mb-3">
-                                                    <button type="button" className="btn btn-primary" >{couple[1]}</button>
+                                                    <button type="button" className="btn btn-primary" >{couple.q}</button>
                                                     </div>
                                                 </div>
 

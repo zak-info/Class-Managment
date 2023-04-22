@@ -18,7 +18,7 @@ import { faUserAlt, faLock } from '@fortawesome/free-solid-svg-icons';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 
-function Login() {
+function Login({onLogin}) {
   // const location = useLocation();
 
   // useEffect(() => {
@@ -70,11 +70,15 @@ function Login() {
     let user={};
 
     axios.get("http://localhost:4000/login", { params: { username: username, password: password } })
-    .then(response => {
+    .then(async response => {
       // if(response.data.fullname!=="no"){
         user=response.data;
          if (user.fullname !== "no" ) {
           setError("");
+          const { token } =  response.data
+          await localStorage.setItem('user', token);
+          console.log(response.data);
+          onLogin();
           histr.push("/home")
         } 
          else {
@@ -86,6 +90,8 @@ function Login() {
     .catch(error => {
       console.error(error);
     });
+
+   
 
 
     if (isLoading) return;
@@ -127,6 +133,7 @@ function Login() {
             {isLoading && <p>Loading...</p>}
             <FontAwesomeIcon icon={faExclamationCircle} className={`errorr user-iconn ${error ? "show" : ""}`} />
             <input   type="submit" value="Login" className="btn solid inpt" />
+            <a href="/signup" style={{fontFamily: 'Tajawal,sans-serif',color:"#17a2b8"}}>انشاء حساب</a>
           </form>
         </div>
       </div>

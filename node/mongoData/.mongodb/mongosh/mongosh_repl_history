@@ -1,3 +1,42 @@
+exit
+xit
+db.students.find()
+db.questions.find()
+db.exams.find()
+db.questions.deleteOne({type:"match"})
+db.questions.insertOne({exam:"e1",type:"quiz",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],ranswers:["qwe1"]})
+db.questions.insertOne({exam:"e1",type:"match",mark:12,question:"qwe",answers:[["qwe1","qwe2"],["qwe4","qw3"]]})
+db.questions.deleteOne({type:"match"})
+db.questions.find()
+db.questions.insertOne({exam:"e1",type:"match",mark:12,question:"qwe",answers:[{q:"qwe1",a:"qwe1"},{q:"qwe2",a:"qwe2"}]})
+db.questions.deleteOne({type:"match"})
+db.questions.find()
+db.questions.insertOne({exam:"e1",type:"match",mark:12,question:"qwe",answers:[["qwe1","qwe2"],["qwe4","qw3"]]})
+db.questions.find()
+db.questions.deleteOne({type:"match"})
+db.questions.insertOne({exam:"e1",type:"match",mark:12,question:"qwe",answers:[["qwe1","qwe2"],["qwe4","qw3"]]})
+db.questions.deleteOne({type:"match"})
+db.questions.insertOne({exam:"e1",type:"match",mark:12,question:"qwe",answers:[["qwe1","qwe2"],["qwe4","qw3"]]})
+db.questions.insertOne({exam:"e1",type:"quiz",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],ranswers:["qwe1"]})
+db.questions.find()
+db.questions.insertOne({exam:"e1",type:"dad",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr (---) moh moh moh
+db.questions.insertOne({exam:"e1",type:"dad",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr (---) moh moh moh"})
+db.questions.deleteMany({})
+db.questions.insertOne({exam:"e1",type:"dad",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],ranswers:["qwe1"]})
+db.questions.insertOne({exam:"e1",type:"dad",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr (---) moh moh moh"})
+db.questions.insertOne({exam:"e1",type:"dad",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr (---) zaki zaiz zakk"})
+db.questions.insertOne({exam:"e1",type:"dad",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr (---) wer wrwrewe"})
+db.questions.deleteMany({})
+db.questions.find()
+db.questions.insertOne({exam:"e1",type:"e1",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr (---) wer wrwrewe"})
+db.questions.deleteMany({})
+db.questions.insertOne({exam:"e1",type:"e1",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr (___) wer wrwrew
+db.questions.insertOne({exam:"e1",type:"e1",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr (___) wer wrwrewe"})
+db.questions.deleteMany({})
+db.questions.find()
+show collections
+use alaa
+use alss
 db.questions.insertOne({exam:"e1",type:"e1",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr ? wer wrwrewe"})
 db.questions.deleteMany({})
 db.questions.insertOne({exam:"e1",type:"e1",mark:12,question:"qwe",answers:["qwe1","qwe2","qw3"],text:"qwe asd zxc wrwr ؟ wer wrwrewe"})
